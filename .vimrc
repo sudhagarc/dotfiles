@@ -1,3 +1,5 @@
+" To avoid cscope duplicate db error messages
+set nocscopeverbose
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
