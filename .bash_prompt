@@ -64,6 +64,7 @@ prompt_git() {
 if tput setaf 1 &> /dev/null; then
 	tput sgr0; # reset colors
 	bold=$(tput bold);
+	normal=$(tput sgr0);
 	reset=$(tput sgr0);
 	# Solarized colors, taken from http://git.io/solarized-colors.
 	black=$(tput setaf 0);
@@ -78,6 +79,7 @@ if tput setaf 1 &> /dev/null; then
 	yellow=$(tput setaf 136);
 else
 	bold='';
+  normal='';
 	reset="\e[0m";
 	black="\e[1;30m";
 	blue="\e[1;34m";
@@ -93,7 +95,7 @@ fi;
 
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
-	userStyle="${red}";
+	userStyle="${bold}${red}";
 else
 	userStyle="${orange}";
 fi;
@@ -165,14 +167,13 @@ function set_prompt() {
 
   # Set the terminal title and prompt.
   PS1="\[\033]0;\W\007\]"; # working directory base name
-  PS1+="\[${bold}\]\n"; # newline
+  #PS1+="\[${bold}\]\n"; # newline
   PS1+="\$(prompt_status) "; # Command status details
   timer_stop
   PS1+="(${cyan}$timer_show${black}) ";
-  PS1+="\[${userStyle}\]\u"; # username
+  PS1+="\[${userStyle}\]\u${normal}"; # username
   PS1+="\[${black}\]@";
-  PS1+="\[${hostStyle}\]\h"; # host
-  PS1+="\[${white}\] ";
+  PS1+="\[${hostStyle}\]\h${normal} "; # host
   PS1+="\[${green}\]\w"; # working directory full path
   PS1+="\$(prompt_git \"\[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
   PS1+=" [${cyan}\D{%m/%d %T}${black}]";
