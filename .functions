@@ -12,7 +12,7 @@ function cdf() { # short for `cdfinder`
 
 # Replace and quickly change similar structured directories
 # usage: cd <path | pattern> [<replace-pattern>]
-cd () {
+function cd () {
   local i=1
   while [[ "${!i}" = -* ]]; do ((++i)); done
   if ((i == $# - 1)); then

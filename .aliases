@@ -41,6 +41,14 @@ alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
 
+# File operations
+alias cp='cp --backup=numbered'
+alias ln='ln --backup=numbered'
+alias mv='mv -f --backup=numbered'
+
+alias l='ls'
+alias ll='ls -l'
+
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
 alias grep='grep --color=auto'
@@ -164,3 +172,30 @@ alias reload="exec $SHELL -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# Kills all but the most recent mosh job. Useful if you have hanging mosh
+# connections which you can't rejoin to kill.
+alias killmosh='kill $(ps --no-headers --sort=start_time -C mosh-server -o pid | head -n -1)'
+
+# ctags - shortcut
+alias tagall='rm -f tags; \
+  find . -name "*.php" -o -name "*.phpt" \
+  -o -name "*.c" -o -name "*.cpp" -o -name "*.c++" \
+  -o -name "*.h" -o -name "*.hpp" \
+  -o -name "*.py" -o -name "*.pl" -o -name "*.pm" \
+  -o -name "*.java" -o -name "*.thrift" \
+  | ctags -L -'
+alias tagcpp='rm -f tags; \
+  find . -name "*.c" -o -name "*.cpp" \
+  -o -name "*.h" -o -name "*.hpp" \
+  | ctags -L -'
+
+# create cscope index
+alias csgen='find . -type f -name "*.php" -o -name "*.phpt" \
+  -o -name "*.c" -o -name "*.cpp" -o -name "*.c++" \
+  -o -name "*.h" -o -name "*.hpp" \
+  -o -name "*.py" -o -name "*.pl" -o -name "*.pm" \
+  -o -name "*.java" -o -name "*.thrift" \
+  > cscope.files; \
+  rm -f cscope.in.out cscope.out cscope.po.out; \
+  cscope -bq'
