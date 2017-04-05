@@ -38,3 +38,17 @@ set convert-meta off
 
 # Use Alt/Meta + Delete to delete the preceding word
 "\e[3;3~": kill-word
+
+# Enable 'vi(m)' mode
+set editing-mode vi
+
+# Map Control-R to search history in reverse
+"\C-r": reverse-search-history
+
+# Map Control-S to search history; Requires stty to prevent kernel from
+# catching ^S
+# Uncomment, if required
+"\C-s": forward-search-history
+
+# Delete previous word
+"\C-w": backward-delete-word

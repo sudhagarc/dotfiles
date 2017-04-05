@@ -9,6 +9,9 @@ for file in ~/.{path,bash_colors,bash_prompt,exports,aliases,functions,extra}; d
 done;
 unset file;
 
+# Disable ^S for stop
+stty stop undef
+
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
 
