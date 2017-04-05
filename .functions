@@ -10,6 +10,26 @@ function cdf() { # short for `cdfinder`
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
 }
 
+# Replace and quickly change similar structured directories
+# usage: cd <path | pattern> [<replace-pattern>]
+cd () {
+  local i=1
+  while [[ "${!i}" = -* ]]; do ((++i)); done
+  if ((i == $# - 1)); then
+    local operands
+    operands=("$@")
+    operands[$i]=${PWD/${!i}/${!#}}
+    if [[ "${operands[$i]}" == "$PWD" ]]; then
+      echo >&2 "cd: string not in pwd:
+      ${operands[$i]}"
+      return 1
+    fi
+    set --
+    "${operands[@]:$(($#-1))}"
+  fi
+  builtin cd "$@"
+}
+
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {
 	local tmpFile="${@%/}.tar";

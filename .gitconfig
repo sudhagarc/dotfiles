@@ -183,3 +183,7 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+
+[user]
+	name = Sudhagar Chinnaswamy
+	email = sudhagar@gmail.com
