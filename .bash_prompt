@@ -148,6 +148,11 @@ function set_prompt() {
   PS1+="\n";
   PS1+="\[${yellow}\]\$ \[${reset}\]"; # `$` (and reset color)
   #export PS1;
+
+  # Flush after each command -- guarantee that almost everything is kept
+  #export PROMPT_COMMAND="history -a"
+  # Flush after each command, then re-read so history can be shared
+  history -a; history -n
 }
 
 PS2="\[${yellow}\]→ \[${reset}\]";
