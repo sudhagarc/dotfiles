@@ -101,11 +101,12 @@ function timer_now {
 }
 
 function timer_start {
-  timer_start=${timer_start:-$(timer_now)}
+  start_time=${start_time:-$(timer_now)}
+  trap - DEBUG
 }
 
 function timer_stop {
-  local delta_us=$((($(timer_now) - $timer_start) / 1000))
+  local delta_us=$((($(timer_now) - $start_time) / 1000))
   local us=$((delta_us % 1000))
   local ms=$(((delta_us / 1000) % 1000))
   local s=$(((delta_us / 1000000) % 60))
@@ -127,7 +128,7 @@ function timer_stop {
   else
     timer_show=${us}us
   fi
-  unset timer_start
+  unset start_time
 }
 
 function set_prompt() {
@@ -153,6 +154,9 @@ function set_prompt() {
   #export PROMPT_COMMAND="history -a"
   # Flush after each command, then re-read so history can be shared
   history -a; history -n
+  set -o functrace > /dev/null 2>&1
+  shopt -s extdebug > /dev/null 2>&1
+  trap 'timer_start' DEBUG
 }
 
 PS2="\[${yellow}\]→ \[${reset}\]";
