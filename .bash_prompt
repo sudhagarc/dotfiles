@@ -76,7 +76,7 @@ else
 fi;
 
 prompt_status() {
-	local s='';
+  local s='';
   # Reference: http://panmental.de/symbols/info.htm
   FancyX='✗';
   Checkmark='✓';

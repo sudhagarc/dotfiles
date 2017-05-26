@@ -85,6 +85,9 @@ set title
 " Show the (partial) command as it’s being typed
 set showcmd
 
+set mousehide "hide mouse while typing
+set wildmode=list:full
+
 " Use relative line numbers
 if exists("&relativenumber")
 	set relativenumber
@@ -125,18 +128,20 @@ imap `` <Esc>
 let g:netrw_silent=1
 
 augroup sudhagar
-  au!
-  autocmd BufNewFile,BufRead *.make setlocal filetype=make
-	autocmd BufNewFile,BufRead *.csv setlocal filetype=csv
+    au!
+    autocmd BufNewFile,BufRead *.make,*.mk setlocal filetype=make
+    autocmd BufNewFile,BufRead Makefile setlocal filetype=make
+    autocmd BufNewFile,BufRead *.csv setlocal filetype=csv
 	autocmd BufNewFile,BufRead SCons* setlocal filetype=python
 	autocmd BufNewFile,BufRead *.sc setlocal filetype=python
 	autocmd BufNewFile,BufRead *.phpt setlocal filetype=php
 	autocmd BufNewFile,BufRead *.php setlocal filetype=php cc=80,81,82
 	autocmd BufNewFile,BufRead *.txt setlocal filetype=text
 	autocmd BufNewFile,BufRead *.go setlocal filetype=go
+	autocmd BufNewFile,BufRead README setlocal filetype=text
 	autocmd BufNewFile,BufRead *.tcc setlocal filetype=cpp
 	autocmd BufNewFile,BufRead *.thrift setlocal filetype=thrift
-	autocmd BufNewFile,BufRead README setlocal filetype=text
+	autocmd BufNewFile,BufRead *.yml,*.yaml setlocal filetype=yaml
 	" Treat .json files as .js
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 	" Treat .md files as Markdown
@@ -146,7 +151,7 @@ augroup sudhagar
   autocmd FileType c,cpp,cc,sh,java,javascript,php,vim,python,make,go setlocal stl=%f\ %m\ %r%=%y\ char:\ %-4B\ line:\ %-4l\ col:\ %-4c
 
   " file types with expand tab and tab width = 2
-  autocmd FileType vim,javascript,c,cpp,cc,sh,java,php setlocal expandtab sw=2 sts=2 ts=2
+  autocmd FileType vim,javascript,c,cpp,cc,sh,java,php setlocal expandtab sw=4 sts=4 ts=4
 
   autocmd FileType vim setlocal autoindent
   autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab tabstop=4 autoindent nosmartindent cinwords=if,elif,else,for,while,try,except,finally,def,class fo=cq
@@ -154,11 +159,15 @@ augroup sudhagar
   autocmd Filetype go setlocal shiftwidth=2 tw=0 expandtab softtabstop nocindent autoindent tabstop=2
 
   autocmd FileType javascript setlocal expandtab shiftwidth=2 sts=2 autoindent smartindent
-  autocmd FileType c,cpp,cc,sh,java setlocal cindent shiftwidth=2 textwidth=78 expandtab softtabstop=2 cino=:0(0
-  " to ignore opening bracket - )
+  autocmd FileType c,cpp,cc,sh setlocal cindent shiftwidth=4 textwidth=78 expandtab softtabstop=4 cino=:0(0
+  " ignore opening bracket - )
+  autocmd FileType java setlocal cindent shiftwidth=4 expandtab softtabstop=4 cino=:0(0
+  " ignore opening bracket - )
 
   autocmd FileType php setlocal shiftwidth=2 tabstop=2 autoindent nocindent nosmartindent cino=:0(2 fo=tcroq comments=sr:/*,mb:*,ex:*/,b:// softtabstop=2 expandtab
-  " to ignore opening bracket - )
+  " ignore opening bracket - )
+
+  autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 autoindent nocindent nosmartindent softtabstop=2 noexpandtab
 
   " For perforce change descriptions
   autocmd FileType conf setlocal smartindent textwidth=78 cinwords=
@@ -270,6 +279,12 @@ endfunction
 nnoremap <leader>d :call Buf_del_and_next()<cr>
 
 execute pathogen#infect()
+
+" syntastic jslint config
+" let g:syntastic_javascript_jslint_args = '--white --nomen --regexp --plusplus --bitwise --newcap --sloppy --vars --predef=Parse --predef=exports'
+let g:syntastic_check_on_open = 1
+" only use jshint for js
+let g:syntastic_javascript_checkers = ['jshint']
 
 if has("gui_macvim")
   nnoremap <C-left> :BufSurfBack<CR>

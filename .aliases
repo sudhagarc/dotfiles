@@ -9,6 +9,9 @@ alias 5="cd ../../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
+# Work directory
+alias work='cd ~/work'
+
 # Shortcuts
 alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
@@ -43,12 +46,21 @@ alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 alias ls="command ls ${colorflag}"
 
 # File operations
-alias cp='cp --backup=numbered'
-alias ln='ln --backup=numbered'
-alias mv='mv -f --backup=numbered'
+if [ ${OS} = "macos" ]; then
+    alias cp='gcp --backup=numbered'
+    alias ln='gln --backup=numbered'
+    alias mv='gmv -f --backup=numbered'
+    alias date='gdate'
+else
+    alias cp='cp --backup=numbered'
+    alias ln='ln --backup=numbered'
+    alias mv='mv -f --backup=numbered'
+fi
 
 alias l='ls'
 alias ll='ls -l'
+alias python3='python3.6'
+alias pip3='pip3.6'
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
@@ -200,3 +212,9 @@ alias csgen='find . -type f -name "*.php" -o -name "*.phpt" \
   > cscope.files; \
   rm -f cscope.in.out cscope.out cscope.po.out; \
   cscope -bq'
+
+# sync local <-> remote
+alias syncin='rsync -av --stats --progress --delete \
+    --exclude-from=.sync_ignore ${REMOTE_HOST}:${REMOTE_DIR} ~/'
+alias syncout='rsync -av --stats --progress --delete \
+    --exclude-from=.sync_ignore ${LOCAL_DIR} ${REMOTE_HOST}:${REMOTE_DIR}'

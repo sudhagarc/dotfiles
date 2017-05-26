@@ -137,11 +137,15 @@
 	# Enable an experimental heuristic that shifts the hunk boundary in an
 	# attempt to make the resulting patch easier to read.
 	indentHeuristic = true
+	tool = vimdiff
 
 [diff "bin"]
 
 	# Use `hexdump` to diff binary files
 	textconv = hexdump -v -C
+
+[difftool]
+	prompt = false
 
 [help]
 
@@ -187,3 +191,6 @@
 [user]
 	name = Sudhagar Chinnaswamy
 	email = sudhagar@gmail.com
+
+[core]
+  editor = vim

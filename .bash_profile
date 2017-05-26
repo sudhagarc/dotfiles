@@ -1,10 +1,17 @@
-# Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH:.";
+# Platform settings
+export PLATFORM_NAME=`uname -s`
+export PLATFORM_HW=`uname -m`
+export PLATFORM=$PLATFORM_HW-$PLATFORM_NAME
+export PREFIX=$HOME/$PLATFORM
+
+if [ ${PLATFORM_NAME} = "Darwin" ]; then
+    export OS=macos
+fi
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,bash_colors,bash_prompt,exports,aliases,functions,extra}; do
+for file in ~/.{aliases,path,bash_colors,bash_prompt,bash_work,exports,aliases.work,functions,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
@@ -13,12 +20,6 @@ unset file;
 export EDITOR=vim
 export VISUAL=vim
 export SVN_EDITOR=vim
-
-# Platform settings
-export PLATFORM_NAME=`uname -s`
-export PLATFORM_HW=`uname -m`
-export PLATFORM=$PLATFORM_HW-$PLATFORM_NAME
-export PREFIX=$HOME/$PLATFORM
 
 # Python settings
 export PYTHONPATH=
@@ -68,6 +69,8 @@ if which brew &> /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_
 	source "$(brew --prefix)/share/bash-completion/bash_completion";
 elif [ -f /etc/bash_completion ]; then
 	source /etc/bash_completion;
+elif [ -f /usr/local/etc/bash_completion ]; then
+    source  /usr/local/etc/bash_completion
 fi;
 
 # Enable tab completion for `g` by marking it as an alias for `git`
@@ -88,7 +91,28 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # Set vi(m) mode
 set -o vi
 
-# Proxies
-export http_proxy=
-export https_proxy=
-export no_proxy=
+# Phone numbers
+FB_PH=16504412845
+MY_PH=16695003060
+
+# Java
+if [ -x /usr/libexec/java_home ]; then
+    export JAVA_HOME=`/usr/libexec/java_home`
+fi
+
+# Go lang
+GOPATH=$HOME/work/go
+export GOPATH
+
+PATH+=:$HOME/bin:$GOPATH/bin
+
+if [ ${OS} = "macos" ]; then
+    PATH+=/usr/local/opt/openssl/bin:/usr/local/go/bin:
+    PATH+=/opt/ossthrift/bin:~/Qt/5.8/clang_64/bin/:
+    PATH+=~/Library/Python/3.6/bin:
+else
+    PATH+=/usr/bin:/usr/local/Qt-5.8.0/bin/:
+fi
+
+PATH+=.:
+export PATH
