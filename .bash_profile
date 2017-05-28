@@ -6,6 +6,8 @@ export PREFIX=$HOME/$PLATFORM
 
 if [ ${PLATFORM_NAME} = "Darwin" ]; then
     export OS=macos
+else
+    export OS=linux
 fi
 
 # Load the shell dotfiles, and then some:
