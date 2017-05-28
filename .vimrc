@@ -156,7 +156,7 @@ augroup sudhagar
   autocmd FileType vim setlocal autoindent
   autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab tabstop=4 autoindent nosmartindent cinwords=if,elif,else,for,while,try,except,finally,def,class fo=cq
   autocmd FileType make setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
-  autocmd Filetype go setlocal shiftwidth=2 tw=0 expandtab softtabstop nocindent autoindent tabstop=2
+  autocmd Filetype go setlocal shiftwidth=2 tw=0 expandtab softtabstop=2 nocindent autoindent tabstop=2
 
   autocmd FileType javascript setlocal expandtab shiftwidth=2 sts=2 autoindent smartindent
   autocmd FileType c,cpp,cc,sh setlocal cindent shiftwidth=4 textwidth=78 expandtab softtabstop=4 cino=:0(0
