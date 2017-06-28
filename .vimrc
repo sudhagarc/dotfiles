@@ -141,7 +141,7 @@ augroup sudhagar
 	autocmd BufNewFile,BufRead README setlocal filetype=text
 	autocmd BufNewFile,BufRead *.tcc setlocal filetype=cpp
 	autocmd BufNewFile,BufRead *.thrift setlocal filetype=thrift
-	autocmd BufNewFile,BufRead *.yml,*.yaml setlocal filetype=yaml
+	autocmd BufNewFile,BufRead *.yml,*.yaml,*.tmpl setlocal filetype=yaml
 	" Treat .json files as .js
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 	" Treat .md files as Markdown
