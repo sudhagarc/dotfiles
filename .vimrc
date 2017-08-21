@@ -167,7 +167,7 @@ augroup sudhagar
   autocmd FileType php setlocal shiftwidth=2 tabstop=2 autoindent nocindent nosmartindent cino=:0(2 fo=tcroq comments=sr:/*,mb:*,ex:*/,b:// softtabstop=2 expandtab
   " ignore opening bracket - )
 
-  autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 autoindent nocindent nosmartindent softtabstop=2 noexpandtab
+  autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 autoindent nocindent nosmartindent softtabstop=2 expandtab
 
   " For perforce change descriptions
   autocmd FileType conf setlocal smartindent textwidth=78 cinwords=
