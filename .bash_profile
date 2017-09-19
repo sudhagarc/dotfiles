@@ -106,7 +106,7 @@ fi
 GOPATH=$HOME/work/go
 export GOPATH
 
-PATH+=:$HOME/bin:$GOPATH/bin
+PATH+=:$HOME/bin:$GOPATH/bin:
 
 if [ ${OS} = "macos" ]; then
     PATH+=/usr/local/opt/openssl/bin:/usr/local/go/bin:
