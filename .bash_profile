@@ -109,6 +109,7 @@ export GOPATH
 PATH+=:$HOME/bin:$GOPATH/bin:
 
 if [ ${OS} = "macos" ]; then
+    PATH+=/opt/local/bin:/opt/local/sbin:
     PATH+=/usr/local/opt/openssl/bin:/usr/local/go/bin:
     PATH+=/opt/ossthrift/bin:~/Qt/5.8/clang_64/bin/:
     PATH+=~/Library/Python/3.6/bin:
