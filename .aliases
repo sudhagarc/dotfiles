@@ -18,9 +18,9 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
 alias work="cd ~/work"
-alias g="git"
 alias h="history"
 alias j="jobs"
+alias m="make"
 alias vi="vim"
 
 # Docker shortcuts
@@ -41,6 +41,17 @@ function __drmi {
     docker rmi `docker images | grep ${1} | awk '{print $1":"$2}';`
 }
 alias drmi="__drmi"
+
+# git shortcuts
+alias g="git"
+alias ga="git add"
+alias gc="git commit"
+alias gsh="git push"
+alias gll="git pull"
+alias gs="git s"
+alias gb="git blame"
+alias gd="git d"
+alias gr="git remove"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
