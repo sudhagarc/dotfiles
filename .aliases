@@ -23,6 +23,25 @@ alias h="history"
 alias j="jobs"
 alias vi="vim"
 
+# Docker shortcuts
+function __di {
+    if [ -z ${1} ]; then
+        echo "Docker image pattern not provided"
+        return
+    fi
+    docker images | grep ${1} | awk '{print $1":"$2 " -> " $3}';
+}
+alias di="__di"     # List docker images
+
+function __drmi {
+    if [ -z ${1} ]; then
+        echo "Docker image pattern not provided"
+        return
+    fi
+    docker rmi `docker images | grep ${1} | awk '{print $1":"$2}';`
+}
+alias drmi="__drmi"
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
