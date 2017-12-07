@@ -230,7 +230,7 @@ alias csgen='find . -type f -name "*.php" -o -name "*.phpt" \
   -o -name "*.java" -o -name "*.thrift" \
   > cscope.files; \
   rm -f cscope.in.out cscope.out cscope.po.out; \
-  cscope -bq'
+  cscope -bq;'
 
 # sync local <-> remote
 alias syncin='rsync -av --stats --progress --delete \
