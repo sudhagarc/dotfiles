@@ -49,7 +49,7 @@ alias gc="git commit"
 alias gsh="git push"
 alias gll="git pull"
 alias gs="git s"
-alias gb="git blame"
+alias gbl="git blame"
 alias gd="git d"
 alias gr="git remove"
 
@@ -94,6 +94,7 @@ alias pip3='pip3.6'
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
+alias ag='agrep --color'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'

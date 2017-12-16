@@ -1,3 +1,6 @@
+" Add bundles
+Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+
 " To avoid cscope duplicate db error messages
 set nocscopeverbose
 " Make Vim more useful
