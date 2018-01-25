@@ -26,7 +26,8 @@ alias vi="vim"
 # Docker shortcuts
 function __di {
     if [ -z ${1} ]; then
-        echo "Docker image pattern not provided"
+        echo "Image pattern not provided; listing all"
+        docker images
         return
     fi
     docker images | grep ${1} | awk '{print $1":"$2 " -> " $3}';
@@ -35,12 +36,17 @@ alias di="__di"     # List docker images
 
 function __drmi {
     if [ -z ${1} ]; then
-        echo "Docker image pattern not provided"
+        echo "Image pattern not provided"
         return
     fi
     docker rmi `docker images | grep ${1} | awk '{print $1":"$2}';`
 }
 alias drmi="__drmi"
+alias dps="docker ps"
+alias dpsa="docker ps -a"
+alias drm="docker rm "
+
+alias m="make"
 
 # git shortcuts
 alias g="git"
