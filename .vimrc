@@ -260,6 +260,7 @@ augroup sudhagar
 
   autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 autoindent nocindent nosmartindent softtabstop=2 expandtab
   autocmd FileType robot setlocal expandtab sw=4 sts=4 ts=4 autoindent nosmartindent
+  autocmd FileType markdown setlocal expandtab sw=4 sts=4 ts=4 autoindent nosmartindent
 
   " For perforce change descriptions
   autocmd FileType conf setlocal smartindent textwidth=78 cinwords=

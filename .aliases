@@ -51,6 +51,7 @@ alias m="make"
 # git shortcuts
 alias g="git"
 alias ga="git add"
+alias gb="git branch -av"
 alias gc="git commit"
 alias gsh="git push"
 alias gll="git pull"
