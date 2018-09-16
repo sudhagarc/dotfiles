@@ -108,9 +108,14 @@ export GOPATH
 
 PATH+=:$HOME/bin:$GOPATH/bin:
 
+# set PATH so it includes GO bin if it exists
+if [ -d "/usr/local/go/bin" ] ; then
+    PATH+=/usr/local/go/bin:
+fi
+
 if [ ${OS} = "macos" ]; then
     PATH+=/opt/local/bin:/opt/local/sbin:
-    PATH+=/usr/local/opt/openssl/bin:/usr/local/go/bin:
+    PATH+=/usr/local/opt/openssl/bin:
     PATH+=/opt/ossthrift/bin:~/Qt/5.8/clang_64/bin:
     PATH+=~/Library/Python/3.6/bin:
 else
