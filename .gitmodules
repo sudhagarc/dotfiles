@@ -5,3 +5,69 @@
 	path = .vim/bundle/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
 	branch = master
+[submodule ".vim/plugged/ctrlp.vim"]
+	path = .vim/plugged/ctrlp.vim
+	url = https://git::@github.com/ctrlpvim/ctrlp.vim.git
+[submodule ".vim/plugged/delimitMate"]
+	path = .vim/plugged/delimitMate
+	url = https://git::@github.com/Raimondi/delimitMate.git
+[submodule ".vim/plugged/fzf.vim"]
+	path = .vim/plugged/fzf.vim
+	url = https://git::@github.com/junegunn/fzf.vim.git
+[submodule ".vim/plugged/grep.vim"]
+	path = .vim/plugged/grep.vim
+	url = https://git::@github.com/vim-scripts/grep.vim.git
+[submodule ".vim/plugged/indentLine"]
+	path = .vim/plugged/indentLine
+	url = https://git::@github.com/Yggdroot/indentLine.git
+[submodule ".vim/plugged/molokai"]
+	path = .vim/plugged/molokai
+	url = https://git::@github.com/tomasr/molokai.git
+[submodule ".vim/plugged/splitjoin.vim"]
+	path = .vim/plugged/splitjoin.vim
+	url = https://git::@github.com/AndrewRadev/splitjoin.vim.git
+[submodule ".vim/plugged/supertab"]
+	path = .vim/plugged/supertab
+	url = https://git::@github.com/ervandew/supertab.git
+[submodule ".vim/plugged/syntastic"]
+	path = .vim/plugged/syntastic
+	url = https://git::@github.com/scrooloose/syntastic.git
+[submodule ".vim/plugged/ultisnips"]
+	path = .vim/plugged/ultisnips
+	url = https://git::@github.com/SirVer/ultisnips.git
+[submodule ".vim/plugged/vim-airline"]
+	path = .vim/plugged/vim-airline
+	url = https://git::@github.com/vim-airline/vim-airline.git
+[submodule ".vim/plugged/vim-airline-themes"]
+	path = .vim/plugged/vim-airline-themes
+	url = https://git::@github.com/vim-airline/vim-airline-themes.git
+[submodule ".vim/plugged/vim-commentary"]
+	path = .vim/plugged/vim-commentary
+	url = https://git::@github.com/tpope/vim-commentary.git
+[submodule ".vim/plugged/vim-fugitive"]
+	path = .vim/plugged/vim-fugitive
+	url = https://git::@github.com/tpope/vim-fugitive.git
+[submodule ".vim/plugged/vim-gitgutter"]
+	path = .vim/plugged/vim-gitgutter
+	url = https://git::@github.com/airblade/vim-gitgutter.git
+[submodule ".vim/plugged/vim-go"]
+	path = .vim/plugged/vim-go
+	url = https://git::@github.com/fatih/vim-go.git
+[submodule ".vim/plugged/vim-misc"]
+	path = .vim/plugged/vim-misc
+	url = https://git::@github.com/xolox/vim-misc.git
+[submodule ".vim/plugged/vim-polyglot"]
+	path = .vim/plugged/vim-polyglot
+	url = https://git::@github.com/sheerun/vim-polyglot.git
+[submodule ".vim/plugged/vimproc.vim"]
+	path = .vim/plugged/vimproc.vim
+	url = https://git::@github.com/Shougo/vimproc.vim.git
+[submodule ".vim/plugged/vim-session"]
+	path = .vim/plugged/vim-session
+	url = https://git::@github.com/xolox/vim-session.git
+[submodule ".vim/plugged/vimshell.vim"]
+	path = .vim/plugged/vimshell.vim
+	url = https://git::@github.com/Shougo/vimshell.vim.git
+[submodule ".vim/plugged/vim-trailing-whitespace"]
+	path = .vim/plugged/vim-trailing-whitespace
+	url = https://git::@github.com/bronson/vim-trailing-whitespace.git
