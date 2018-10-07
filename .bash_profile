@@ -121,10 +121,10 @@ fi
 if [ ${OS} = "macos" ]; then
     PATH+=/opt/local/bin:/opt/local/sbin:
     PATH+=/usr/local/opt/openssl/bin:
-    PATH+=/opt/ossthrift/bin:~/Qt/5.8/clang_64/bin:
+    PATH+=/opt/ossthrift/bin:~/Qt/5.9/5.9.1/clang_64/bin:
     PATH+=~/Library/Python/3.6/bin:
 else
-    PATH+=/usr/bin:/usr/local/Qt-5.8.0/bin:
+    PATH+=/usr/bin:/usr/local/Qt-5.9.1/bin:
 fi
 
 PATH+=.:

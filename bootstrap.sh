@@ -5,6 +5,9 @@
 
 function doIt() {
 	rsync --exclude ".git/" \
+		--exclude ".gitmodules" \
+		--exclude ".gitignore" \
+		--exclude ".hgignore" \
 		--exclude ".DS_Store" \
 		--exclude "bootstrap.sh" \
 		--exclude "README.md" \
