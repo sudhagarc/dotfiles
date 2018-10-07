@@ -23,6 +23,19 @@ alias j="jobs"
 alias m="make"
 alias vi="vim"
 
+# AWS shortcuts
+function __aws_profile() {
+    case ${1} in
+        ""|clear)
+            export AWS_PROFILE=""
+            ;;
+        *)
+            export AWS_PROFILE="${1}"
+            ;;
+    esac
+}
+alias aws-profile="__aws_profile"
+
 # Docker shortcuts
 function __di {
     if [ -z ${1} ]; then
