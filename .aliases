@@ -247,7 +247,7 @@ alias tagall='rm -f tags; find . -name "*.php" -o -name "*.phpt" -o -name "*.c" 
 alias tagcpp='rm -f tags; find . -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" | ctags -L -'
 
 # create cscope index
-alias csgen='find . -type f -name "*.php" -o -name "*.phpt" -o -name "*.c" -o -name "*.cpp" -o -name "*.c++" -o -name "*.h" -o -name "*.hpp" -o -name "*.py" -o -name "*.pl" -o -name "*.pm" -o -name "*.java" -o -name "*.thrift" > cscope.files; rm -f cscope.in.out cscope.out cscope.po.out; cscope -bq;'
+alias csgen='find . -type f -name "*.js" -o -name "*.php" -o -name "*.phpt" -o -name "*.c" -o -name "*.cpp" -o -name "*.c++" -o -name "*.h" -o -name "*.hpp" -o -name "*.py" -o -name "*.pl" -o -name "*.pm" -o -name "*.java" -o -name "*.thrift" -o -name "*.go" > cscope.files; rm -f cscope.in.out cscope.out cscope.po.out; cscope -bq;'
 
 # sync local <-> remote
 alias syncin='rsync -av --stats --progress --delete --exclude-from=.sync_ignore ${REMOTE_HOST}:${REMOTE_DIR} ~/'

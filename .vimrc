@@ -73,6 +73,7 @@ endif
 
 if v:version >= 704
   " Go snippets
+  " TODO: Fix this on macOs; comment on macOs for now
   Plug 'SirVer/ultisnips'
 endif
 
@@ -234,7 +235,8 @@ augroup sudhagar
 	autocmd BufNewFile,BufRead *.yml,*.yaml,*.tmpl setlocal filetype=yaml
 	autocmd BufNewFile,BufRead *.robot setlocal filetype=robot
 	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+	autocmd BufNewFile,BufRead *js setlocal filetype=javascript
+	autocmd BufNewFile,BufRead *js,*.json setfiletype json syntax=javascript
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 
@@ -681,6 +683,14 @@ endfunction
 nnoremap <leader>d :call Buf_del_and_next()<cr>
 
 execute pathogen#infect()
+
+
+" syntastic cpp / qt header files
+let g:syntastic_cpp_include_dirs = ["/Users/sudhagar/Qt5.9/5.9.1/Src/qtbase/include"]
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "active_filetypes": [],
+    \ "passive_filetypes": ["cpp"] }
 
 " syntastic jslint config
 " let g:syntastic_javascript_jslint_args = '--white --nomen --regexp --plusplus --bitwise --newcap --sloppy --vars --predef=Parse --predef=exports'
